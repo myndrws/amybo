@@ -2,11 +2,18 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
+import tailwindcss from '@tailwindcss/vite';
+
 // https://astro.build/config
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
+			title: 'Amybo',
+			logo: {
+				light: './src/assets/amybo.svg',
+				dark: './src/assets/amybo_dark.svg',
+				replacesTitle: true
+			},
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
 			sidebar: [
 				{
@@ -21,6 +28,22 @@ export default defineConfig({
 					autogenerate: { directory: 'reference' },
 				},
 			],
+			editLink: {
+				baseUrl: 'https://github.com/withastro/starlight/edit/main/docs/',
+			},
+			customCss: [
+				// Path to your Tailwind base styles:
+				'./src/styles/global.css',
+				'./src/styles/amybo.css',
+			],
+			components: {
+				// Override the default `Hero` component.
+				Hero: './src/components/Hero.astro',
+			},
 		}),
 	],
+
+	vite: {
+		plugins: [tailwindcss()],
+	},
 });

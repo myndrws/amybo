@@ -1,0 +1,18 @@
+:root {
+    --sl-content-width: 50rem;
+    --sl-text-5xl: 3.5rem;
+}
+
+.starlight.core.hero {
+    display: grid;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    background-image: '../../assets/free-forest.jpg';
+    background-size: cover;
+    /* Ensures the image covers the entire div */
+    background-position: center;
+    /* Centers the image */
+    background-repeat: no-repeat;
+    /* Prevents the image from repeating */
+}
