@@ -41,9 +41,6 @@ export default defineConfig({
 				Hero: './src/components/Hero.astro',
 			},
 		}),
-	],
-
-	vite: {
-		plugins: [tailwindcss()],
-	},
+  ],
+  vite: { plugins: [tailwindcss()] },
 });
