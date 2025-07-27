@@ -1,61 +1,52 @@
 ---
-import { Image } from 'astro:assets';
-import { LinkButton } from '@astrojs/starlight/components';
+import { getImage } from "astro:assets";
+import { LinkButton } from "@astrojs/starlight/components";
+import forestImage from "../assets/free-forest.jpg";
 
-const PAGE_TITLE_ID = '_top';
+const PAGE_TITLE_ID = "_top";
 const { data } = Astro.locals.starlightRoute.entry;
 const { title = data.title, tagline, image, actions = [] } = data.hero || {};
 
-const imageAttrs = {
-	loading: 'eager' as const,
-	decoding: 'async' as const,
-	width: 400,
-	height: 400,
-	alt: image?.alt || '',
-};
+const forestBackground = await getImage({ src: forestImage });
 
-let darkImage: ImageMetadata | undefined;
-let lightImage: ImageMetadata | undefined;
 let rawHtml: string | undefined;
-if (image) {
-	if ('file' in image) {
-		darkImage = image.file;
-	} else if ('dark' in image) {
-		darkImage = image.dark;
-		lightImage = image.light;
-	} else {
-		rawHtml = image.html;
-	}
-}
 ---
 
-<div class="hero">
-	{
-		darkImage && (
-			<Image
-				src={darkImage}
-				{...imageAttrs}
-				class:list={{ 'light:sl-hidden': Boolean(lightImage) }}
-			/>
-		)
-	}
-	{lightImage && <Image src={lightImage} {...imageAttrs} class="dark:sl-hidden" />}
+<div
+	class="hero width-full pl-6 pr-6"
+	style={`background-image:url(${forestBackground.src});`}
+	aria-label="Stock image of aerial view of a forest."
+>
 	{rawHtml && <div class="hero-html sl-flex" set:html={rawHtml} />}
 	<div class="sl-flex stack">
 		<div class="sl-flex copy">
-			<h1 id={PAGE_TITLE_ID} data-page-title set:html={title} />
-			{tagline && <div class="tagline" set:html={tagline} />}
+			<h1 id={PAGE_TITLE_ID} data-page-title set:html={title}/>
+			{tagline && <div class="tagline" set:html={tagline}/>}
 		</div>
 		{
 			actions.length > 0 && (
 				<div class="sl-flex actions">
 					{actions.map(
-						({ attrs: { class: className, ...attrs } = {}, icon, link: href, text, variant }) => (
-							<LinkButton {href} {variant} icon={icon?.name} class:list={[className]} {...attrs}>
+						({
+							attrs: { class: className, ...attrs } = {},
+							icon,
+							link: href,
+							text,
+							variant,
+						}) => (
+							<LinkButton
+								{href}
+								{variant}
+								icon={icon?.name}
+								class:list={[className]}
+								{...attrs}
+							>
 								{text}
-								{icon?.html && <Fragment set:html={icon.html} />}
+								{icon?.html && (
+									<Fragment set:html={icon.html} />
+								)}
 							</LinkButton>
-						)
+						),
 					)}
 				</div>
 			)
@@ -70,6 +61,26 @@ if (image) {
 			align-items: center;
 			gap: 1rem;
 			padding-bottom: 1rem;
+			position: relative;
+			overflow: hidden;
+			width: 100%;
+		}
+
+		.hero-bg {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			z-index: 0;
+			pointer-events: none;
+		}
+
+		.hero > *:not(.hero-bg) {
+			position: relative;
+			z-index: 1;
 		}
 
 		.hero > img,
@@ -97,15 +108,24 @@ if (image) {
 		}
 
 		h1 {
-			font-size: clamp(var(--sl-text-3xl), calc(0.25rem + 5vw), var(--sl-text-6xl));
+			font-size: clamp(
+				var(--sl-text-3xl),
+				calc(0.25rem + 5vw),
+				var(--sl-text-6xl)
+			);
 			line-height: var(--sl-line-height-headings);
 			font-weight: 600;
-			color: var(--sl-color-white);
+			color: white;
 		}
 
 		.tagline {
-			font-size: clamp(var(--sl-text-base), calc(0.0625rem + 2vw), var(--sl-text-xl));
-			color: var(--sl-color-gray-2);
+			font-size: clamp(
+				var(--sl-text-base),
+				calc(0.0625rem + 2vw),
+				var(--sl-text-xl)
+			);
+			color: white;
+			font-weight: bold;
 		}
 
 		.actions {

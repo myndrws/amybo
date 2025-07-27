@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "text": "Why We Exist",
+        "link": "/why"
+    },
+    {
+        "id": 2,
+        "text": "Collaborate Now",
+        "link": "/collaborate/"
+    },
+    {
+        "id": 3,
+        "text": "Open Experiments",
+        "link": "/experiments/"
+    },
+    {
+        "id": 4,
+        "text": "Contact",
+        "link": "/contact/"
+    }
+]
