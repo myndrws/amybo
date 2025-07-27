@@ -1,17 +1,10 @@
-# Starlight Starter Kit: Basics
+# Amy.bo's new website
 
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
+Amy.bo is a non-profit open source protein fermentation community - and this is the 'new', yet-to-be-deployed website. Check out the ['website refresh' thread on the Amy.bo forum](https://forum.amybo.org/t/website-refresh/132/9) for more context and how you can get involved.
 
-```
-npm create astro@latest -- --template starlight
-```
+## Status
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/starlight/tree/main/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/starlight/tree/main/examples/basics)
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/withastro/starlight&create_from_path=examples/basics)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fwithastro%2Fstarlight%2Ftree%2Fmain%2Fexamples%2Fbasics&project-name=my-starlight-docs&repository-name=my-starlight-docs)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+ACTIVE DEVELOPMENT
 
 ## 🚀 Project Structure
 
@@ -22,17 +15,48 @@ Inside of your Astro + Starlight project, you'll see the following folders and f
 ├── public/
 ├── src/
 │   ├── assets/
+│   │   ├── amybo.svg
+│   │   ├── amybo_dark.svg 
+│   │   └── free-forest.jpg
+│   ├── components/
+│   │   ├── Header.astro
+│   │   └── Hero.astro
 │   ├── content/
-│   │   ├── docs/
+│   │   └── docs/
+│   │       ├── contact.mdx
+│   │       ├── index.mdx
+│   │       ├── mission.mdx
+│   │       ├── collaborate/
+│   │       │   ├── fund_us.mdx
+│   │       │   ├── pioreactor.mdx
+│   │       │   └── volunteer.mdx
+│   │       ├── experiments/
+│   │       │   ├── community_experiments.mdx
+│   │       │   ├── hardware.mdx
+│   │       │   ├── protocols.mdx
+│   │       │   └── submit.mdx
+│   │       ├── guides/
+│   │       │   └── example.md
+│   │       └── reference/
+│   │           └── example.md
+│   ├── data/
+│   │   └── links.json
+│   ├── styles/
+│   │   ├── amybo.css
+│   │   └── global.css
 │   └── content.config.ts
 ├── astro.config.mjs
 ├── package.json
-└── tsconfig.json
+├── tsconfig.json
+└── README.md
 ```
 
 Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
 
 Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+
+The image free-forest.jpg is a freely available, and subsequently edited, photo by <a href="https://unsplash.com/@ozarkdrones?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Ozark Drones</a> on <a href="https://unsplash.com/photos/birds-eye-view-photo-of-trees-jeV-LUEyJoE?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>.
+      
 
 Static assets, like favicons, can be placed in the `public/` directory.
 
@@ -51,4 +75,6 @@ All commands are run from the root of the project, from a terminal:
 
 ## 👀 Want to learn more?
 
-Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
+Check out the current (and soon to be replaced by this project) [Amy.bo site](https://amybo.org/) and [forum.](https://forum.amybo.org/)
+
+For help on contributing using Starlight, check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
