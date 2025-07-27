@@ -6,26 +6,26 @@ hero:
   tagline: We exist to drive forward the protein revolution with the open source community.
   actions:
     - text: Our Mission
-      link: /guides/example/
+      link: /mission/
       icon: right-arrow
       variant: primary
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
-
-## Next steps
+import { LinkButton } from "@astrojs/starlight/components";
 
 <CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+	<Card title="EXPERIMENTING IN THE OPEN" icon="rocket">
+		We support and share open source experimentation for sustainable protein. 
+		<LinkButton href="/collaborate/community_experiments" variant="primary">Take a look at our experiments</LinkButton>
+		<LinkButton href="https://forum.amybo.org/" variant="secondary">Join our community forum</LinkButton>
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	<Card title="TAKE ACTION" icon="add-document">
+		<LinkButton href="/collaborate/volunteer" variant="primary">Volunteer</LinkButton>
+		Collaborate with us via our community forum, experimentation or funding.
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	<Card title="STAY IN THE LOOP" icon="youtube">
+		Stay updated with our latest experiments and community news by subscribing to our [YouTube channel](https://www.youtube.com/@amybo).
+		<LinkButton href="https://www.youtube.com/@amybo" variant="primary">Watch our latest videos</LinkButton>
 	</Card>
 </CardGrid>

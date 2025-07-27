@@ -24,7 +24,6 @@ const shouldRenderSearch =
         {shouldRenderSearch && <Search />}
     </div>
     <div class="right-group sl-flex print:hidden items-center">
-
         <!-- Hamburger menu button, visible on md and below -->
         <button
             class="md:hidden p-2 rounded focus:outline-none focus:ring"
@@ -49,26 +48,61 @@ const shouldRenderSearch =
         <!-- Site links: hidden on md and below, flex on md+ -->
         <div class="site_links hidden md:flex">
             {
-            links.map((link) => (
-            <div class="site_link">
-                <a href={link.link}>{link.text}</a>
-            </div>
-            ))
+                links.map((link, idx) =>
+                    link.sub ? (
+                        <div
+                            class="site_link relative"
+                            x-data={`{ open${idx}: false }`}
+                        >
+                            <button
+                                type="button"
+                                class="site_link"
+                                @click={`open${idx} = !open${idx}`}
+                                aria-haspopup="true"
+                            >
+                                {link.text}
+                            </button>
+                            <div
+                                class="dropdown-menu absolute left-0 mt-2 w-40 bg-white border rounded shadow-lg z-50"
+                                x-show={`open${idx}`}
+                                @click.away={`open${idx} = false`}
+                                x-transition
+                                style="display: none;"
+                            >
+                                {link.sub.map((sublink) => (
+                                    <div class="site_link">
+                                        <a
+                                            href={sublink.link}
+                                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                                            tabindex="0"
+                                        >
+                                            {sublink.text}
+                                        </a>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ) : (
+                        <div class="site_link">
+                            <a href={link.link}>{link.text}</a>
+                        </div>
+                    ),
+                )
             }
         </div>
         <!-- Dropdown menu for mobile -->
-        <div 
+        <div
             class="absolute top-full left-0 w-full bg-white shadow-md z-50 flex flex-col md:hidden"
             x-show="open"
             @click.away="open = false"
             x-transition
         >
             {
-            links.map((link) => (
-            <div class="site_link">
-                <a href={link.link}>{link.text}</a>
-            </div>
-            ))
+                links.map((link) => (
+                    <div class="site_link">
+                        <a href={link.link}>{link.text}</a>
+                    </div>
+                ))
             }
         </div>
         <div class="sl-flex social-icons">
@@ -104,16 +138,21 @@ const shouldRenderSearch =
             align-items: center;
         }
 
-        .site_link a {
-            /* Inherit site-wide text styles */
+        .site_link a,
+        .site_link button {
             color: var(--sl-color-text);
             font-size: var(--sl-font-size-text);
             font-family: var(--sl-font-family);
             font-weight: var(--sl-font-weight-normal);
             text-decoration: none;
             transition: color 0.2s;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
         }
-        .site_link a:hover {
+        .site_link a:hover,
+        .site_link button:hover {
             color: var(--sl-color-accent);
             text-decoration: underline;
         }

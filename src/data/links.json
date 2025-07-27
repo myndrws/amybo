@@ -2,17 +2,54 @@
     {
         "id": 1,
         "text": "Why We Exist",
-        "link": "/why"
+        "link": "/mission/"
     },
     {
         "id": 2,
         "text": "Collaborate Now",
-        "link": "/collaborate/"
+        "link": "/collaborate/",
+        "sub": [
+            {
+                "text": "AMYBO forum",
+                "link": "https://forum.amybo.org/"
+            },
+            {
+                "text": "Pioreactors",
+                "link": "/collaborate/pioreactor/"
+            },
+                        {
+                "text": "Volunteer",
+                "link": "/collaborate/volunteer/"
+            },
+                        {
+                "text": "Amybo Youtube",
+                "link": "https://www.youtube.com/@amybo"
+            }
+            
+        ]
     },
     {
         "id": 3,
         "text": "Open Experiments",
-        "link": "/experiments/"
+        "link": "/experiments/",
+        "sub": [
+            {
+                "text": "Community experiments",
+                "link": "/experiments/community_experiments/"
+            },
+            {
+                "text": "Experimental protocols",
+                "link": "/experiments/protocols/"
+            },
+            {
+                "text": "Submit an experiment",
+                "link": "/experiments/submit/"
+            },
+            {
+                "text": "Hardware",
+                "link": "/experiments/hardware/"
+            }
+        ]
     },
     {
         "id": 4,
