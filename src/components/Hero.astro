@@ -18,14 +18,14 @@ let rawHtml: string | undefined;
 	aria-label="Stock image of aerial view of a forest."
 >
 	{rawHtml && <div class="hero-html sl-flex" set:html={rawHtml} />}
-	<div class="sl-flex stack">
+	<div class="sl-flex stack pl-10">
 		<div class="sl-flex copy">
-			<h1 id={PAGE_TITLE_ID} data-page-title set:html={title}/>
-			{tagline && <div class="tagline" set:html={tagline}/>}
+			<h1 id={PAGE_TITLE_ID} data-page-title set:html={title} />
+			{tagline && <div class="tagline" set:html={tagline} />}
 		</div>
 		{
 			actions.length > 0 && (
-				<div class="sl-flex actions">
+				<div id="title_container" class="sl-flex actions">
 					{actions.map(
 						({
 							attrs: { class: className, ...attrs } = {},
@@ -57,13 +57,19 @@ let rawHtml: string | undefined;
 <style>
 	@layer starlight.core {
 		.hero {
+			width: 100vw; /* Full viewport width */
+			height: 100vh;
+			left: 50%;
+			right: 50%;
+			margin-left: -50vw;
+			margin-right: -50vw;
+			position: relative;
 			display: grid;
 			align-items: center;
 			gap: 1rem;
 			padding-bottom: 1rem;
 			position: relative;
 			overflow: hidden;
-			width: 100%;
 		}
 
 		.hero-bg {
@@ -106,7 +112,6 @@ let rawHtml: string | undefined;
 		.copy > * {
 			max-width: 50ch;
 		}
-
 		h1 {
 			font-size: clamp(
 				var(--sl-text-3xl),
