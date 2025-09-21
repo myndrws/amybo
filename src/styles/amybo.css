@@ -6,3 +6,25 @@
     margin-top: 0 !important;
     padding-top: 0 !important;
 }
+
+.card-actions {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-start;
+}
+
+.card-actions > * {
+  margin: 0.25rem 0.5rem 0.25rem 0;
+}
+
+.theme-card {
+  color: var(--color-accent-950, #87BD25); /* Use your theme variable or fallback */
+}
+
+.theme-button {
+  background: var(--theme-accent, #0057b8);    /* Use your theme accent variable or fallback */
+  color: #fff;
+  border: none;
+}

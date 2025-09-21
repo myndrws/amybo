@@ -18,7 +18,7 @@ let rawHtml: string | undefined;
 	aria-label="Stock image of aerial view of a forest."
 >
 	{rawHtml && <div class="hero-html sl-flex" set:html={rawHtml} />}
-	<div class="sl-flex stack pl-10">
+	<div class="sl-flex stack p-10">
 		<div class="sl-flex copy">
 			<h1 id={PAGE_TITLE_ID} data-page-title set:html={title} />
 			{tagline && <div class="tagline" set:html={tagline} />}

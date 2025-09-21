@@ -15,17 +15,23 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 import { LinkButton } from "@astrojs/starlight/components";
 
 <CardGrid stagger>
-	<Card title="EXPERIMENTING IN THE OPEN" icon="rocket">
-		We support and share open source experimentation for sustainable protein. 
-		<LinkButton href="/collaborate/community_experiments" variant="primary">Take a look at our experiments</LinkButton>
-		<LinkButton href="https://forum.amybo.org/" variant="secondary">Join our community forum</LinkButton>
-	</Card>
-	<Card title="TAKE ACTION" icon="add-document">
-		<LinkButton href="/collaborate/volunteer" variant="primary">Volunteer</LinkButton>
-		Collaborate with us via our community forum, experimentation or funding.
-	</Card>
-	<Card title="STAY IN THE LOOP" icon="youtube">
-		Stay updated with our latest experiments and community news by subscribing to our [YouTube channel](https://www.youtube.com/@amybo).
-		<LinkButton href="https://www.youtube.com/@amybo" variant="primary">Watch our latest videos</LinkButton>
-	</Card>
+    <Card title="EXPERIMENTING IN THE OPEN" icon="rocket">
+        We support and share open source experimentation for sustainable protein. 
+        <div class="card-actions">
+            <LinkButton href="/collaborate/community_experiments" variant="primary">Take a look at our experiments</LinkButton>
+            <LinkButton href="https://forum.amybo.org/" variant="secondary">Join our community forum</LinkButton>
+        </div>
+    </Card>
+    <Card title="TAKE ACTION" icon="add-document">
+        Collaborate with us via our community forum, experimentation or funding.
+        <div class="card-actions">
+            <LinkButton href="/collaborate/volunteer" variant="primary">Volunteer</LinkButton>
+        </div>
+    </Card>
+    <Card title="STAY IN THE LOOP" icon="youtube">
+        Stay updated with our latest experiments and community news by subscribing to our [YouTube channel](https://www.youtube.com/@amybo).
+        <div class="card-actions">
+            <LinkButton href="https://www.youtube.com/@amybo" variant="primary">Watch our latest videos</LinkButton>
+        </div>
+    </Card>
 </CardGrid>
