@@ -4,7 +4,7 @@ Amy.bo is a non-profit open source protein fermentation community - and this is 
 
 ## Status
 
-ACTIVE DEVELOPMENT
+ACTIVE DEVELOPMENT - please [see the issues board to get an idea of what needs doing](https://github.com/users/myndrws/projects/3/views/1), and get started on one of these if you'd like to help out!
 
 ## 🚀 Project Structure
 
